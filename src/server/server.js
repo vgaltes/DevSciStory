@@ -1,19 +1,23 @@
+/*global exports, require */
 (function () {
     "use strict";
-/*
- * 1.- Haciendo esto si hago node src/server/server.js me dice: define is not defined.
- * en cambio si hago karma start todo va bien
- */
-/*define(function(){
-    var server = function(){};
 
-    server.prototype.start = function(){
+    var express = require('express'),
+        http = require('http');
 
+    var app = express(),
+              server;
+
+    exports.start = function(contentDir, port){
+
+        app.use(express.static(contentDir));
+
+        server = http.createServer(app).listen(port, function () {
+            console.log('Listening on port ' + port);
+        });
     };
 
-    return server;
-});
-*/
-
-
+    exports.end = function(){
+        server.close();
+    };
 }());

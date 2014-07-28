@@ -26,3 +26,4 @@ node_modules
 
 #Idea directori
 .idea/
+.DS_STORE

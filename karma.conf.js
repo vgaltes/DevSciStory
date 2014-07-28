@@ -10,13 +10,16 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha','requirejs','chai'],
-
+        //frameworks: ['mocha','requirejs','chai'],
+        frameworks: ['mocha'],
 
         // list of files / patterns to load in the browser
         files: [
-//            {pattern: 'src/server/tests/*_tests.js',included:false},
-//            {pattern: 'src/server/*.js', included: false},
+            'node_modules/chai/chai.js',
+            'vendor/angularjs/angular.js',
+            'vendor/angularjs/angular-mocks.js',
+            'src/client/*.js',
+            'src/client/tests/*_tests.js'
         ],
 
 
@@ -24,7 +27,6 @@ module.exports = function(config) {
         exclude: [
 
         ],
-
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
